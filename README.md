@@ -42,13 +42,34 @@ const examples = [
 Then you can just:
 
 ```typescript
-import {fetchConstraints} from 'mockdown-client';
+import { MockdownClient } from 'mockdown-client';
 
-// If you live in the future:
-const constraints = await fetchConstraints(examples);
+const example1 = {"name": "authors",
+    "rect": [0, 500, 1200, 870],
+    "children": [{
+        "name": "turing",
+        "rect": [59.5, 582, 400, 840]
+        },
+        {
+        "name": "hopper",
+        "rect": [430, 582, 770, 840]
+        },
+    ]}
 
-// And if you don't, then:
-fetchConstraints(examples).then((constraints) => {
-    // ...
-});
+const example2 = {"name": "authors",
+    "rect": [0, 500, 1600, 870],
+    "children": [{
+        "name": "turing",
+        "rect": [60.15, 582, 533.33, 840]
+        },
+        {
+        "name": "hopper",
+        "rect": [563.33, 582, 1036.66, 840]
+        },
+    ]}
+
+const examples = [example1, example2]
+const client = new MockdownClient("0.0.0.0", 8000)
+const constraints = await client.fetch(examples, {learningMethod: 'noisetolerant', width: {lower:1200, upper:1600}, height: {lower:500, upper:500}})
+console.log(constraints)
 ```
