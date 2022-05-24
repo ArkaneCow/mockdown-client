@@ -1,5 +1,5 @@
 import { ILayoutViewTree, LayoutViewTree, LayoutSolver } from '../../index';
-import { Strength, Variable } from 'flightlessbird.js';
+import { Strength, Variable } from 'kiwi.js';
 
 describe(LayoutSolver, () => {
     test(`creates edit variables for all attributes.`, () => {

@@ -1,4 +1,4 @@
-import { Solver, Variable, Constraint } from "flightlessbird.js";
+import { Solver, Variable, Constraint } from "kiwi.js";
 import { ILayoutViewTree } from "../views";
 import { ConstraintParser } from "./ConstraintParser";
 
